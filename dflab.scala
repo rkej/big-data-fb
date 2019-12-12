@@ -31,7 +31,11 @@ object Lab {
       //output file must be saved in csv format
      val mySchema = StructType(Array(StructField("Node1", StringType, false), StructField("Node2", StringType, false)))
      val df = session.read.format("csv").option("delimiter", "\t").schema(mySchema).load("hdfs://"+infile)
-     df.write.format("csv").option("mode", "overwrite").save("df6")
+
+     val node1_df = df.drop("Node1")
+     val node2_df = df.drop("Node2")
+     nodes_df = node1_df.union(node2_df)
+     nodes_df.write.format("csv").option("mode", "overwrite").save("df7")
    }
 
    def answerQ2(session: SparkSession, infile1: String, infile2: String,  outfile: String): Unit = {
