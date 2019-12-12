@@ -6,7 +6,7 @@ import org.apache.spark.sql.types._
 
 object Lab {
    def main(args: Array[String]) = {
-      val q1_infile = "/ds410/facebook"
+      val q1_infile = "698.edges"
       val q2_infile_a = "/ds410/tripdata/trip_data_1.parquet"
       val q2_infile_b = "/ds410/tripdata/trip_data_2.parquet"
       val q1_outfile = "q1_result.csv"
@@ -16,7 +16,7 @@ object Lab {
 
       answerQ1(session, q1_infile, q1_outfile)
       answerQ2(session, q2_infile_a, q2_infile_b, q2_outfile)
-   } 
+   }
 
 
    def getSession() = {
@@ -30,11 +30,11 @@ object Lab {
       //when reading input, you must give the schema, no inferSchema allowed
       //output file must be saved in csv format
      val mySchema = StructType(Array(StructField("Node1", StringType, false), StructField("Node2", StringType, false)))
-     val df = session.read.format("csv").option("delimeter", "\t").option("delimeter", "\n").schema(mySchema).load("hdfs://" + infile).toDF()
-     	
+     val df = session.read.format("csv").option("delimeter", "\t").schema(mySchema).load(infile)
+
      df.write.format("csv").option("mode", "overwrite").save("df4")
    }
-  
+
    def answerQ2(session: SparkSession, infile1: String, infile2: String,  outfile: String): Unit = {
       //output file must be saved in csv format
    }
