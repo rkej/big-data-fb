@@ -6,7 +6,7 @@ import org.apache.spark.sql.types._
 
 object Lab {
    def main(args: Array[String]) = {
-      val q1_infile = "698.edges"
+      val q1_infile = "/ds410/facebook"
       val q2_infile_a = "/ds410/tripdata/trip_data_1.parquet"
       val q2_infile_b = "/ds410/tripdata/trip_data_2.parquet"
       val q1_outfile = "q1_result.csv"
@@ -30,7 +30,7 @@ object Lab {
       //when reading input, you must give the schema, no inferSchema allowed
       //output file must be saved in csv format
      val mySchema = StructType(Array(StructField("Node1", StringType, false), StructField("Node2", StringType, false)))
-     val df = session.read.format("csv").option("delimeter", "\t").schema(mySchema).load(infile)
+     val df = session.read.format("csv").option("delimeter", "\t").schema(mySchema).load("hdfs://" + infile)
 
      df.write.format("csv").option("mode", "overwrite").save("df4")
    }
