@@ -1,2 +1,7 @@
-[0m[[0m[31merror[0m] [0m[0m/home/rxk88/dflab/dflab.scala:41:1: Missing closing brace `}' assumed here[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/rxk88/dflab/dflab.scala:37:6: not found: value nodes_df[0m
+[0m[[0m[31merror[0m] [0m[0m     nodes_df = node1_df.union(node2_df)[0m
+[0m[[0m[31merror[0m] [0m[0m     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/rxk88/dflab/dflab.scala:38:6: not found: value nodes_df[0m
+[0m[[0m[31merror[0m] [0m[0m     nodes_df.write.format("csv").option("mode", "overwrite").save("df7")[0m
+[0m[[0m[31merror[0m] [0m[0m     ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
