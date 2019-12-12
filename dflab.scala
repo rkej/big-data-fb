@@ -30,9 +30,8 @@ object Lab {
       //when reading input, you must give the schema, no inferSchema allowed
       //output file must be saved in csv format
      val mySchema = StructType(Array(StructField("Node1", StringType, false), StructField("Node2", StringType, false)))
-     val df = session.read.format("csv").option("delimeter", "\t").schema(mySchema).load("hdfs://" + infile)
-
-     df.write.format("csv").option("mode", "overwrite").save("df4")
+     val df = session.read.format("csv").option("delimiter", "\t").schema(mySchema).load("hdfs://"+infile)
+     df.write.format("csv").option("mode", "overwrite").save("df6")
    }
 
    def answerQ2(session: SparkSession, infile1: String, infile2: String,  outfile: String): Unit = {
