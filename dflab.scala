@@ -46,7 +46,7 @@ object Lab {
       val read_inf2 = session.read.format("parquet").option("inferSchema", "true").load("hdfs://" + infile2)
       val df1 = read_inf1.groupBy("medallion", "hack_license").agg(count("hack_license") as "counts_in_jan").select("medallion", "hack_license", "counts_in_jan")
       val df2 = read_inf2.groupBy("medallion", "hack_license").agg(count("hack_license") as "counts_in_feb").select("medallion", "hack_license", "counts_in_feb")
-      val df = df1.join(df2, df1("medallion")<=>df2("medallion") && df1("hack_license")<=> df2("hack_license") && df1("counts_in_feb") > df1("counts_in_jan"))
+      val df = df1.join(df2, Seq("medallion", "hack_license"), "outer")
       df.write.format("csv").option("header", "true").option("mode", "overwrite").save("par")
 
    }
