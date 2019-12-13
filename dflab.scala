@@ -43,6 +43,10 @@ object Lab {
    def answerQ2(session: SparkSession, infile1: String, infile2: String,  outfile: String): Unit = {
       //output file must be saved in csv format
       val read_inf1 = session.read.format("parquet").option("inferSchema", "true").load("hdfs://" + infile1)
-      read_inf1.write.format("csv").option("header", "true").option("mode", "overwrite").save("par")
+      val read_inf2 = session.read.format("parquet").option("inferSchema", "true").load("hdfs://" + infile2)
+      val df = read_inf1.join(read_inf2, "header" === "header", "outer")
+
+      df.write.format("csv").option("header", "true").option("mode", "overwrite").save("par")
+
    }
 }
