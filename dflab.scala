@@ -35,7 +35,7 @@ object Lab {
      val node1_df = df.drop("Node1")
      val node2_df = df.drop("Node2")
      val nodes_df = node1_df.union(node2_df)
-     val select_node1 = node1_df.group_by($"Node2").agg(countDistinct($"Node2") as "num_neighbours")
+     val select_node1 = nodes_df.groupBy("Node2").agg(countDistinct("Node2") as "num_neighbours")
 
      select_node1.write.format("csv").option("mode", "overwrite").save("df10")
    }
