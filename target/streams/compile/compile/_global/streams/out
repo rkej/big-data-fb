@@ -1,7 +1,3 @@
-[0m[[0m[31merror[0m] [0m[0m/home/rxk88/dflab/dflab.scala:46:65: overloaded method value save with alternatives:[0m
-[0m[[0m[31merror[0m] [0m[0m  ()Unit <and>[0m
-[0m[[0m[31merror[0m] [0m[0m  (path: String)Unit[0m
-[0m[[0m[31merror[0m] [0m[0m cannot be applied to (String, header: String)[0m
-[0m[[0m[31merror[0m] [0m[0m      read_inf1.write.format("csv").option("mode", "overwrite").save("par", header = "true")[0m
-[0m[[0m[31merror[0m] [0m[0m                                                                ^[0m
+[0m[[0m[31merror[0m] [0m[0mIO error while decoding /home/rxk88/dflab/dflab.scala with UTF-8[0m
+[0m[[0m[31merror[0m] [0m[0mPlease try specifying another one using the -encoding option[0m
 [0m[[0m[31merror[0m] [0m[0mone error found[0m

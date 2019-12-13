@@ -1,1 +1,9 @@
-[0m[[0m[0mdebug[0m] [0m[0mJar uptodate: /home/rxk88/dflab/target/scala-2.11/mylab_2.11-1.0.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0mPackaging /home/rxk88/dflab/target/scala-2.11/mylab_2.11-1.0.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/rxk88/dflab/target/scala-2.11/classes[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Lab.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/rxk88/dflab/target/scala-2.11/classes/Lab.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Lab$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/rxk88/dflab/target/scala-2.11/classes/Lab$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m

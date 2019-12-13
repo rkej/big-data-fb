@@ -44,7 +44,7 @@ object Lab {
       //output file must be saved in csv format
       val read_inf1 = session.read.format("parquet").option("inferSchema", "true").load("hdfs://" + infile1)
       val read_inf2 = session.read.format("parquet").option("inferSchema", "true").load("hdfs://" + infile2)
-      val df = read_inf1.join(read_inf2, "header" === "header", "outer")
+      val df = read_inf1.join(read_inf2, read_inf1.col("header") === read_inf2.col("header"), "outer")
 
       df.write.format("csv").option("header", "true").option("mode", "overwrite").save("par")
 
