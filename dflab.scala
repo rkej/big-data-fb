@@ -48,8 +48,8 @@ object Lab {
       val df1 = read_inf1.groupBy("medallion", "hack_license").agg(count("hack_license") as "counts_in_jan").select("medallion", "hack_license", "counts_in_jan")
       val df2 = read_inf2.groupBy("medallion", "hack_license").agg(count("hack_license") as "counts_in_feb").select("medallion", "hack_license", "counts_in_feb")
       val df = df1.join(df2, Seq("medallion", "hack_license"), "outer")
-      val remove_nas = df.na.fill(ImmutableMap.of("A", "unkown", "B", 0))
-      val ans = remove_nas.select(*).where(df("counts_in_feb")>("counts_in_jan"))
+      val remove_nas = df.na.fill(0)
+      val ans = remove_nas.select("*").where(df("counts_in_feb")>df("counts_in_jan"))
       ans.write.format("csv").option("header", "true").option("mode", "overwrite").save("par")
 
    }
